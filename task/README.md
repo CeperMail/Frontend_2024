@@ -1,38 +1,34 @@
 # Task Pertemuan 2
 
-## Deskripsi Task
+## Deskripsi
 
-- Mengelola struktur data (data structure and algorithm) array dan object.
-- Membiasakan sintaks JavaScript Modern (ES6).
-- Membiasakan melakukan TDD (Test Driven Development).
+- Practice Data Structure and Algorithm.
+- Practice Module and Promise.
+- Practice Modern JavaScript before Learning React.
+- Practice TDD (Test Driven Development).
 
-## Menjalankan Task:
+## Menjalankan Task
 
 - Masuk ke folder task: `cd task`.
 - Install dependencies: `npm install`.
-- Test task: `npm test`.
-- Jalankan task: `node task.js` atau `npm start`.
+- Jalankan task: `npm start`.
+- Jalankan task (hot reload): `npm start:dev`
 
-**Install Task:**
+Note:
 
-![Install Task](img/install.png)
+- Kodingan task di folder `src`.
+- Folder dan file lain tidak perlu diubah.
 
-## Test Task:
+## Menjalankan Test
 
-- Task harus lolos semua test.
-- Test task: `npm test`.
-- Folder `test` dan isinya jangan dihapus.
+- Jalankan test: `npm test`.
+- Test harus berhasil semua.
+- Folder `test` tidak perlu diubah.
 
-**Test Berhasil:**
-
-![Test Success](img/test-success.png)
-
-## Ketentuan Pengumpulan:
+## Ketentuan Pengumpulan
 
 - Push task ke Repository Github.
+- Task tidak perlu dizip dan folder `node_modules` tidak perlu diupload.
 - Submit link repository ke Elena.
-- Tugas tidak perlu dizip.
-- Folder `node_modules` tidak perlu diupload.
-- Submit task sesuai kelas:
-  - Kamis: 03 Maret 2022, [Link Elena](https://elena.nurulfikri.ac.id/mod/assign/view.php?id=24689)
-  - Jumat: 05 Maret 2022, [Link Elena](https://elena.nurulfikri.ac.id/mod/assign/view.php?id=25572)
+- Kamis, 10 Maret 2022, [Link Elena](https://elena.nurulfikri.ac.id/mod/assign/view.php?id=24691)
+- Jumat, 12 Maret 2022, [Link Elena](https://elena.nurulfikri.ac.id/mod/assign/view.php?id=25630)
