@@ -1,0 +1,13 @@
+const Header = () => {
+    return (
+        <nav>
+            <ul>
+                <li>home</li>
+                <li>about us</li>
+                <li>contact us</li>
+            </ul>
+        </nav>
+    );
+}
+
+export default Header;
