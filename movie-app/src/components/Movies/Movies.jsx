@@ -1,6 +1,7 @@
 import Movie from "../Movie/Movie.jsx";
 import styles from "./Movies.module.css";
-import data from "../../utils/constants/data.js"
+import data from "../../utils/constants/data.js";
+import {nanoid}  from 'nanoid';
 import { useState } from "react";
 
 function Movies (){
@@ -9,7 +10,7 @@ function Movies (){
 
     function handleClick(){
         const newMovie = {
-            id: "tt17907586",
+            id: nanoid(),
             title: "Siksa Kubur",
             year: "2024",
             type: "Movie",
