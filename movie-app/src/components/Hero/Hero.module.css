@@ -46,10 +46,11 @@
 
 /* Medium Screen */
 @media (min-width: 768px) {
-  /*
-   * Nothing TODO Here.
-   * We dont change style Hero. 
-   */
+.hero__image {
+  max-width: 90%;
+  height: auto;
+  border-radius: 25px;
+}
 }
 
 /* Large Screen */

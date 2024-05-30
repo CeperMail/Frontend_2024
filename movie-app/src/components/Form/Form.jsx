@@ -1,35 +1,120 @@
-import styles from "./Form.module.css"
+import {useState} from 'react';
+import PropTypes from 'prop-types';
+import styles from './Form.module.css';
+import {nanoid} from 'nanoid';
+import Alert from '../Alert/Alert';
 
-function Form() {
+function Form({movies, setMovies}) {
+  const [formData, setFormData] = useState({
+    title: '',
+    date: '',
+    poster: '',
+    type: '',
+  });
+
+  const [errors, setErrors] = useState({
+    title: false,
+    date: false,
+    poster: false,
+    type: false,
+  });
+
+  const {title, date, poster, type} = formData;
+
+  function handleChange(e) {
+    const {name, value} = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  }
+
+  function validate() {
+    const newErrors = {
+      title: title === '',
+      date: date === '',
+      poster: poster === '',
+      type: type === '',
+    };
+    setErrors(newErrors);
+    return !Object.values(newErrors).some((error) => error);
+  }
+
+  function Form() {
+    const movie = {
+      id: nanoid(),
+      title,
+      year: date,
+      type,
+      poster,
+    };
+    setMovies([...movies, movie]);
+    setFormData({
+      title: '',
+      date: '',
+      poster: '',
+      type: '',
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (validate()) {
+      Form();
+    }
+  }
+
   return (
     <div className={styles.container}>
-      <section className={styles.form}>
+      <div className={styles.form}>
         <div className={styles.form__left}>
-          <img className={styles.form__image} src="https://picsum.photos/536/354" alt="placeholder" />
+          <img className={styles.form__image} src="https://picsum.photos/536/354" alt="Add Photo Here.png" />
         </div>
         <div className={styles.form__right}>
-          <form>
-            <h2 className={styles.form__title}>Add movie</h2>
-            <label className={styles.form__label}>Title:</label>
-            <input
-              type="text"
-              id="title"
-              className={styles.form__input}
-            />
-            <br />
-            <label className={styles.form__label} htmlFor="year">Year:</label>
-            <input
-              type="number"
-              id="year"
-              className={styles.form__input}
-            />
-            <br />
-            <button type="submit" className={styles.form__button}>Add Movie</button>
+          <h1 className={styles.form__title}>Add Movie</h1>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.form__label}>
+              <label htmlFor="poster">Poster</label>
+              <br />
+              <input id="poster" type="file" name="poster" value={poster} onChange={handleChange} className={styles.form__input} />
+              {errors.poster && <Alert>Poster Wajib Diisi</Alert>}
+              <br />
+              <label htmlFor="title">Title</label>
+              <br />
+              <input id="title" type="text" name="title" value={title} onChange={handleChange} className={styles.form__input} />
+              {errors.title && <Alert>Title Wajib Diisi</Alert>}
+            </div>
+            <div className={styles.form__label}>
+              <label htmlFor="date">Date</label>
+              <br />
+              <input id="date" type="date" name="date" value={date} onChange={handleChange} className={styles.form__input} />
+              {errors.date && <Alert>Date Wajib Diisi</Alert>}
+            </div>
+            <div className={styles.form__label}>
+              <label htmlFor="type">Type</label>
+              <br />
+              <select id="type" name="type" value={type} onChange={handleChange} className={styles.form__radio}>
+                <option value="">Select Type</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="comedy">Comedy</option>
+                <option value="horror">Horror</option>
+              </select>
+              {errors.type && <Alert>Type Wajib Diisi</Alert>}
+            </div>
+            <button className={styles.form__button} type="submit">
+              Submit
+            </button>
           </form>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
+
+Form.propTypes = {
+  movies: PropTypes.array.isRequired,
+  setMovies: PropTypes.func.isRequired,
+};
 
 export default Form;

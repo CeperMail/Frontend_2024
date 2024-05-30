@@ -8,7 +8,7 @@ function Movies (){
 
     const [movies, setMovies] = useState(data);
 
-    function handleClick(){
+    function handleClick(){ 
         const newMovie = {
             id: nanoid(),
             title: "Siksa Kubur",

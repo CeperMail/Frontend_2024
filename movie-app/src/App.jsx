@@ -1,23 +1,25 @@
-import Navbar from "./components/Navbar/Navbar"
-import Footer from "./components/Footer/Footer"
-import Hero from "./components/Hero/Hero"
-import Movies from "./components/Movies/Movies"
-import Form from "./components/Form/Form"
+import Home from './pages/Home';
+import {Route, Routes} from 'react-router-dom';
+import CreateMovie from './pages/movie/Create';
+import PopularMovie from './pages/movie/Popular';
+import NowPlayingMovie from './pages/movie/NowPlaying';
+import TopRatedMovie from './pages/movie/TopRated';
+import Layout from '../src/Layout/index';
 
-
-
-function App(){
+const App = () => {
   return (
-    <div>
-    <Navbar />
-      <main>
-        <Hero />
-        <Movies />
-        <Form/>
-      </main>
-    <Footer />
-    </div>
-  )
-}
+    <>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/movie/Create" element={<CreateMovie />}></Route>
+          <Route path="/movie/Popular" element={<PopularMovie />}></Route>
+          <Route path="/movie/NowPlaying" element={<NowPlayingMovie />}></Route>
+          <Route path="/movie/TopRated" element={<TopRatedMovie />}></Route>
+        </Routes>
+      </Layout>
+    </>
+  );
+};
 
-export default App
+export default App;
