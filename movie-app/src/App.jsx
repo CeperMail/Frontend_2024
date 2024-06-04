@@ -5,10 +5,12 @@ import PopularMovie from './pages/movie/Popular';
 import NowPlayingMovie from './pages/movie/NowPlaying';
 import TopRatedMovie from './pages/movie/TopRated';
 import Layout from '../src/Layout/index';
+// import Counter from "./components/Counter/Counter";
 
 const App = () => {
   return (
     <>
+      {/* <Counter/> */}
       <Layout>
         <Routes>
           <Route path="/" element={<Home />}></Route>
