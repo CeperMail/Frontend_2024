@@ -1,14 +1,14 @@
-import styles from "./Footer.module.css"
+import StyledFooter from "./Footer.styled";
 
-function Footer(){
-    return(
-        <div className={styles.container}>
-            <footer className={styles.footer}>
-                <h2 className={styles.footer__title}>Movie app</h2>
-                <p className={styles.footer__author}>Created by CeperMail</p>
-            </footer>
-        </div>
-    );
+function Footer() {
+  return (
+    <StyledFooter>
+      <footer>
+        <h2>Movie app</h2>
+        <p>Created by CeperMail</p>
+      </footer>
+    </StyledFooter>
+  );
 }
 
-export default Footer
+export default Footer;
