@@ -5,6 +5,8 @@ const Button = styled.button`
   border-radius: 10px;
   color: #fff;
   cursor: pointer;
+  text-decoration: none;
+  text-align: center;
 
   // PROPS VARIANT
   background-color: ${(props) =>

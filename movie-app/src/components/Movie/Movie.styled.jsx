@@ -14,6 +14,10 @@ const StyledMovie = styled.div`
     color: #4361ee;
     font-size: 1.95rem;
     margin-bottom: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 20ch;
   }
 
   p {

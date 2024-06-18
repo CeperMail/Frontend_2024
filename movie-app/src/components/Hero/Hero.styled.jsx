@@ -11,8 +11,8 @@ const StyledHero = styled.div`
     @media (min-width: 992px) {
       margin: 0 1rem;
       flex-direction: row;
-      justify-content: center; 
-      align-items: left;  
+      justify-content: center;
+      align-items: left;
     }
   }
 
@@ -54,6 +54,8 @@ const StyledHero = styled.div`
     }
 
     @media (min-width: 992px) {
+      max-width: 100%;
+      max-height: 35rem;
       margin-left: 1rem;
     }
   }
