@@ -2,19 +2,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Hero from "../../components/Hero/Hero";
 import Movies from "../../components/Movies/Movies";
+import ENDPOINTS from "../../utils/constants/endpoints";
+
 
 function PopularMovie() {
-
   const[movies, setMovies] = useState([]);
   // Perform side effect: fetch movie
   useEffect(() => {
     async function fetchPopularMovies() {
-      // Save API KEY and URL popular movie
-      const API_KEY = import.meta.env.VITE_API_KEY;
-      const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
-
+   
       // Fetch data using axios
-      const response = await axios(URL);
+      const response = await axios(ENDPOINTS.POPULAR);
       setMovies(response.data.results);
     }
 
