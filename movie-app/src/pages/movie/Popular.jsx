@@ -1,30 +1,27 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Hero from "../../components/Hero/Hero";
 import Movies from "../../components/Movies/Movies";
 import ENDPOINTS from "../../utils/constants/endpoints";
-
+import Hero from "../../components/Hero/Hero";
 
 function PopularMovie() {
-  const[movies, setMovies] = useState([]);
-  // Perform side effect: fetch movie
-  useEffect(() => {
-    async function fetchPopularMovies() {
-   
-      // Fetch data using axios
-      const response = await axios(ENDPOINTS.POPULAR);
-      setMovies(response.data.results);
-    }
+    const [movies, setMovies] = useState([]);
 
-    fetchPopularMovies();
-  }, []);
+    useEffect(() => {
+        async function fetchPopularMovie() {
+            const response = await axios(ENDPOINTS.POPULAR());
+            setMovies(response.data.results);
+        }
 
-  return (
-    <div>
-      <Hero />
-      <Movies title="Popular Movies" movies = {movies} />
-    </div>
-  )
+        fetchPopularMovie();
+    }, []);
+
+    return (
+        <>
+            <Hero />
+            <Movies movies={movies} title="Popular Movies" />
+        </>
+    );
 }
 
 export default PopularMovie;

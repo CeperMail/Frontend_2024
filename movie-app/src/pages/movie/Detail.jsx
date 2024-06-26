@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import DetailMovie from "../../components/DetailMovie";
 import Movies from "../../components/Movies/Movies";
 import axios from "axios";
-
-
+import ENDPOINTS from "../../utils/constants/endpoints";
 
 function Detail() {
     const { id } = useParams();
@@ -12,15 +11,9 @@ function Detail() {
 
     useEffect(() => {
         async function fetchRecommendedMovies() {
-            try {
-                const API_KEY = import.meta.env.VITE_API_KEY;
-                const params = `?api_key=${API_KEY}&append_to_response=videos`;
-                const URL = `https://api.themoviedb.org/3/movie/${id}/recommendations${params}`;
-                const response = await axios.get(URL);
+                const response = await axios.get(ENDPOINTS.RECOMMENDATIONS(id));
+                console.log("Response received:", response);
                 setMovies(response.data.results);
-            } catch (error) {
-                console.error("Error fetching recommended movies:", error);
-            }
         }
 
         fetchRecommendedMovies();

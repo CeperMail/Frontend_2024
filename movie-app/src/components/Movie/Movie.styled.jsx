@@ -8,6 +8,7 @@ const StyledMovie = styled.div`
     max-width: 100%;
     height: auto;
     margin-bottom: 1rem;
+    margin: auto;
   }
 
   h3 {
@@ -18,6 +19,7 @@ const StyledMovie = styled.div`
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 20ch;
+    margin: auto;
   }
 
   p {

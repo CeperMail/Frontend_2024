@@ -9,17 +9,16 @@ function DetailMovie() {
     const params = useParams();
     const [movie, setMovie] = useState("");
     const genres = movie && movie.genres.map((genre) => genre.name).join(", ");
-    const trailer = movie &&  `https://youtube.com/watch?v=${movie.videos.results[0].key}`;
-   
+    const trailer = movie && `https://youtube.com/watch?v=${movie.videos.results[0].key}`;
+
     useEffect(() => {
         getDetailMovie();
     }, [params.id]);
 
     async function getDetailMovie() {
         const response = await axios(ENDPOINTS.MOVIE_DETAIL(params.id));
-        setMovie(response.data)
+        setMovie(response.data);
     }
-    
 
     return (
         <StyledDetailMovie>

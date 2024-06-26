@@ -12,7 +12,7 @@ function TopRatedMovie() {
     async function fetchTopRatedMovies() {
 
       // Fetch data using axios
-      const response = await axios(ENDPOINTS.TOP_RATED);
+      const response = await axios(ENDPOINTS.TOP_RATED(" "));
       setMovies(response.data.results);
     }
 

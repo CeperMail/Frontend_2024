@@ -8,6 +8,7 @@ const StyledDetailMovie = styled.div `
   gap: 1rem;
   padding: 1rem;
   text-align: center;
+  margin: auto;
 
   img {
     border-radius: 25px;

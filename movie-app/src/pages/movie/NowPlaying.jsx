@@ -1,29 +1,27 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Hero from "../../components/Hero/Hero";
 import Movies from "../../components/Movies/Movies";
 import ENDPOINTS from "../../utils/constants/endpoints";
+import Hero from "../../components/Hero/Hero";
 
-function NowPlayingMovie(){
-    
-  const[movies, setMovies] = useState([]);
-  // Perform side effect: fetch movie
-  useEffect(() => {
-    async function fetchNowPlayingMovies() {
-      // Fetch data using axios
-      const response = await axios(ENDPOINTS.NOW_PLAYING);
-      setMovies(response.data.results);
-    }
+function NowPlayingMovie() {
+    const [movies, setMovies] = useState([]);
 
-    fetchNowPlayingMovies();
-  }, []);
+    useEffect(() => {
+        async function fetchNowPlayingMovie() {
+            const response = await axios(ENDPOINTS.NOW_PLAYING());
+            setMovies(response.data.results);
+        }
 
-  return (
-    <div>
-      <Hero />
-      <Movies title="Now Playing" movies = {movies} />
-    </div>
-  )
+        fetchNowPlayingMovie();
+    }, []);
+
+    return (
+        <>
+            <Hero />
+            <Movies movies={movies} title="Now Playing Movies" />
+        </>
+    );
 }
 
 export default NowPlayingMovie;
