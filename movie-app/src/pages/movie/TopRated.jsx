@@ -1,31 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
 import axios from "axios";
 import Hero from "../../components/Hero/Hero";
 import Movies from "../../components/Movies/Movies";
 import ENDPOINTS from "../../utils/constants/endpoints";
+import MoviesContext from "../../components/context/MoviesContext";
 
 function TopRatedMovie() {
-     
-  const[movies, setMovies] = useState([]);
-  // Perform side effect: fetch movie
-  useEffect(() => {
-    async function fetchTopRatedMovies() {
+    const { movies, setMovies } = useContext(MoviesContext);
 
-      // Fetch data using axios
-      const response = await axios(ENDPOINTS.TOP_RATED(" "));
-      setMovies(response.data.results);
-    }
+    useEffect(() => {
+        async function fetchTopRatedMovies() {
+            const response = await axios(ENDPOINTS.TOP_RATED());
+            setMovies(response.data.results);
+        }
 
-    fetchTopRatedMovies();
-  }, []);
+        fetchTopRatedMovies();
+    }, [setMovies]);
 
-  return (
-    <div>
-      <Hero />
-      <Movies title="Top Rated" movies = {movies} />
-    </div>
-  )
+    return (
+        <div>
+            <Hero />
+            <Movies title="Top Rated" movies={movies} />
+        </div>
+    );
 }
-  
+
 export default TopRatedMovie;
-  

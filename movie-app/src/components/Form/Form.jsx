@@ -1,28 +1,31 @@
-import {useState} from 'react';
+import { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
-import {nanoid} from 'nanoid';
+import { nanoid } from 'nanoid';
 import Alert from '../Alert/Alert';
+import { useNavigate } from 'react-router-dom';
+import MoviesContext from '../context/MoviesContext';
 
-function Form({movies, setMovies}) {
+function Form() {
+  const { movies, setMovies } = useContext(MoviesContext);
   const [formData, setFormData] = useState({
     title: '',
     date: '',
     poster: '',
     type: '',
   });
-
   const [errors, setErrors] = useState({
     title: false,
     date: false,
     poster: false,
     type: false,
   });
-
-  const {title, date, poster, type} = formData;
+  
+  const { title, date, poster, type } = formData;
+  const navigate = useNavigate();
 
   function handleChange(e) {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
@@ -40,7 +43,7 @@ function Form({movies, setMovies}) {
     return !Object.values(newErrors).some((error) => error);
   }
 
-  function Form() {
+  function addMovie() {
     const movie = {
       id: nanoid(),
       title,
@@ -55,12 +58,13 @@ function Form({movies, setMovies}) {
       poster: '',
       type: '',
     });
+    navigate("/");
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     if (validate()) {
-      Form();
+      addMovie();
     }
   }
 

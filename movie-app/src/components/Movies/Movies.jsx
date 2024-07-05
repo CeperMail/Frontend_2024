@@ -1,8 +1,15 @@
 import Movie from "../Movie/Movie.jsx";
 import styles from "./Movies.module.css";
+import { useContext } from "react";
+import MoviesContext from "../context/MoviesContext.jsx";
 
 
-function Movies({ movies, title  }) {
+function Movies(props) {
+
+  const {title = "Latest Movies"} = props;
+
+  const {movies} = useContext(MoviesContext);
+
   return (
     <div className={styles.container}> 
       <section className={styles.movies}>

@@ -1,9 +1,17 @@
-function CreateMovie(){
-    return(
+import { useContext } from 'react';
+import Hero from "../../components/Hero/Hero";
+import Form from "../../components/Form/Form";
+import MoviesContext from "../../components/context/MoviesContext";
+
+function CreateMovie() {
+    const { movies, setMovies } = useContext(MoviesContext);
+
+    return (
         <>
-            <h2>Create Movie</h2>
+            <Hero />
+            <Form movies={movies} setMovies={setMovies} />
         </>
-    )
+    );
 }
 
 export default CreateMovie;
