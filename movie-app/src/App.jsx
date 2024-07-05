@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from './utils/constants/theme';
-import Home from './pages/Home';
+import Home from './pages/home';
 import CreateMovie from './pages/movie/Create';
 import PopularMovie from './pages/movie/Popular';
 import NowPlayingMovie from './pages/movie/NowPlaying';
